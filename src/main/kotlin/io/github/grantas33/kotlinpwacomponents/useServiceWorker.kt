@@ -6,6 +6,11 @@ import kotlinx.coroutines.launch
 import react.useEffect
 import react.useState
 
+/**
+ * A hook that handles the registration of the service worker
+ *
+ * @param[serviceWorkerScriptUrl] Path to the service worker script file from the public folder
+ */
 fun useServiceWorker(serviceWorkerScriptUrl: String = "/serviceWorker.js"): ServiceWorkerState {
 
     val (serviceWorkerState, setServiceWorkerState) = useState<ServiceWorkerState>(ServiceWorkerState.Loading)

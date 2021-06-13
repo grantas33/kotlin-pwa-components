@@ -1,5 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.js") version "1.5.10"
+    id("org.jetbrains.dokka") version "1.4.32"
     `maven-publish`
 }
 
@@ -14,6 +15,14 @@ repositories {
 kotlin {
     js {
         browser {}
+    }
+}
+
+tasks.dokkaHtml.configure {
+    dokkaSourceSets {
+        named("main") {
+            includes.from("README.md")
+        }
     }
 }
 
