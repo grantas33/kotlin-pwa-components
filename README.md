@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/grantas33/kotlin-pwa-components.svg)](https://jitpack.io/#grantas33/kotlin-pwa-components)
 # Module kotlin-pwa-components
 
 This module includes two utility hook functions and can be used in progressive web applications which:
