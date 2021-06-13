@@ -1,6 +1,5 @@
 plugins {
     id("org.jetbrains.kotlin.js") version "1.5.10"
-    `maven-publish`
 }
 
 group = "io.github.grantas33"
@@ -14,18 +13,6 @@ repositories {
 kotlin {
     js {
         browser {}
-    }
-}
-
-configure<PublishingExtension> {
-    publications {
-        create<MavenPublication>("kotlin") {
-            from(components["kotlin"])
-            groupId = project.group.toString()
-            artifactId = project.name
-            version = project.version.toString()
-            artifact(tasks.getByName<Zip>("jsSourcesJar"))
-        }
     }
 }
 
