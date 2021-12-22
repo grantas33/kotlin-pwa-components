@@ -3,7 +3,7 @@ package io.github.grantas33.kotlinpwacomponents
 import kotlinx.browser.window
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import react.useEffect
+import react.useEffectOnce
 import react.useState
 
 /**
@@ -24,7 +24,7 @@ fun useServiceWorker(serviceWorkerScriptUrl: String = "/serviceWorker.js"): Serv
         }
     }
 
-    useEffect(dependencies = listOf()) {
+    useEffectOnce {
         scope.launch {
             loadServiceWorkerState()
         }

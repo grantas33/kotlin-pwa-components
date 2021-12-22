@@ -3,6 +3,7 @@ package io.github.grantas33.kotlinpwacomponents
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
 import react.useEffect
+import react.useEffectOnce
 import react.useState
 
 /**
@@ -48,7 +49,7 @@ fun usePushManager(serviceWorkerState: ServiceWorkerState, publicKey: String): U
         }
     }
 
-    useEffect(dependencies = listOf()) {
+    useEffectOnce {
         scope.launch {
             if (serviceWorkerState is ServiceWorkerState.Registered && pushManagerState is PushManagerState.NotLoaded) {
                 loadPushManagerState(serviceWorkerState.swRegistration.pushManager)
@@ -56,7 +57,7 @@ fun usePushManager(serviceWorkerState: ServiceWorkerState, publicKey: String): U
         }
     }
 
-    useEffect(dependencies = listOf(serviceWorkerState)) {
+    useEffect(serviceWorkerState) {
         scope.launch {
             if (serviceWorkerState is ServiceWorkerState.Registered && pushManagerState is PushManagerState.NotLoaded) {
                 loadPushManagerState(serviceWorkerState.swRegistration.pushManager)
